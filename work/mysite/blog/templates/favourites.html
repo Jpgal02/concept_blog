@@ -1,0 +1,52 @@
+{% extends "base_generic.html" %} {% block content %} {% load crispy_forms_tags %} {% load static %}
+
+<!-- Single Content -->
+
+<div id="content" class="site-content" style="top:30px;">
+    <div class="single-post-wrapper content-1070 center-relative">
+        <article class="center-relative">
+            <div class="media">
+                <div class="media-body">
+                    <h2 class="cat-links">즐겨찾기</h2>
+                </div>
+            </div>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <!-- form작성시 필수 -->
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">즐겨보는 글을 자유롭게 저장&삭제하세요</legend>
+
+
+                </fieldset>
+                <div>
+                    <div class="row">
+                        {% for post in new %}
+                        <div class="col-md-3">
+                            <a class="text-dark" href="{{post.get_absolute_url}}">
+                                <div class="card mb-4 box-shadow">
+                                    <img class="card-img-top" src="{{post.title_image.url}}" style="max-width:100%; height:150px" alt="{{ post.title }}">
+                                    <div class="card-body">
+                                        <h2 style="font-size:18px;font-weight:bold">{{post.title}}</h2>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <small class="text-muted"></small>
+                                            <div id="favourite-section"><a href="{% url 'favourite_post' post.id %}" class="btn btn-outline-primary">Remove</a></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </form>
+        </article>
+    </div>
+</div>
+{% endblock %}
+
+
+<div id="content" class="site-content center-relative">
+    <div class="single-post-wrapper content-1070 center-relative">
+
+        <article class="center-relative">

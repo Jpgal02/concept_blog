@@ -1,0 +1,41 @@
+{% extends "base_generic.html" %} {% block content %} {% load crispy_forms_tags %} {% load static %}
+
+<!-- Single Content -->
+
+<div id="content" class="site-content" style="top:30px;">
+    <div class="single-post-wrapper content-1070 center-relative">
+        <article class="center-relative">
+            <div class="media">
+                <img class="rounded-circle" src="{{user.profile.image.url}}" style="height: 125px; width: 125px; margin-right:20px; margin-left: 16px;">
+                <div class="media-body">
+                    <h2 class="cat-links">{{user.username}}</h2>
+                    <p class="text-secondary">{{user.email}}</p>
+                </div>
+            </div>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <!-- form작성시 필수 -->
+                <br>
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Profile Info</legend>
+                    {{p_form | crispy }}
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-outline-info" type="submit">Update</button>
+                </div>
+                <div>
+
+                </div>
+            </form>
+        </article>
+    </div>
+</div>
+
+
+{% endblock %}
+
+
+<div id="content" class="site-content center-relative">
+    <div class="single-post-wrapper content-1070 center-relative">
+
+        <article class="center-relative">

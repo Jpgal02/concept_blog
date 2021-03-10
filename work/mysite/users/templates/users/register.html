@@ -1,0 +1,29 @@
+{% extends "base_generic.html" %} {% block content %} {% load crispy_forms_tags %} {% load static %}
+
+<div id="content" class="site-content">
+    <div class="single-post-wrapper content-1070 center-relative">
+        <article class="center-relative">
+            <form method="POST">
+                {% csrf_token %}
+                <!-- form작성시 필수 -->
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Join Today</legend>
+                    {{form | crispy }} {{r_form | crispy}}
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-outline-info" type="submit">Sign Up</button>
+                </div>
+            </form>
+        </article>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Already Have An Account? <a class="ml-2" href="{% url 'login'%}">Sign In</a>
+            </small>
+        </div>
+        </article>
+    </div>
+</div>
+
+</html>
+
+{% endblock %}

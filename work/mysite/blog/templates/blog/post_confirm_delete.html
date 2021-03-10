@@ -1,0 +1,25 @@
+{% extends "base_generic.html" %} {% block content %} {% load static%}
+
+<!-- Single Content -->
+<div id="content" class="site-content center-relative">
+    <div class="single-post-wrapper content-1070 center-relative">
+
+        <article class="center-relative">
+            <h2> 삭제하기 </h2>
+            <p> "{{post.title}}" 게시물을 정말 삭제하시겠습니까? </p>
+            {% load widget_tweaks %}
+            <form action="" method="POST" enctype="multipart/from-data">
+                {% csrf_token %} {% for field in form.visible_fields %}
+                <div class="form-group">
+                    <label for={{field.id_for_label}}>{{field.label}}</label> {{field|add_class:'form-control'}} {% for error in field.errors %}
+                    <span class="help-block">{{error}}</span> {% endfor %}
+                </div>
+                {% endfor %}
+                <button class="btn btn-outline-danger" type="submit">예</button>
+                <a class="btn btn-outline-secondary" href="{% url 'post' post.id%}">아니요</a>
+
+            </form>
+        </article>
+    </div>
+</div>
+{% endblock %}

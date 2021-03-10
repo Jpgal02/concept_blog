@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial scale=1.0">
+    <title>table</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        
+        td,
+        th {
+            text-align: middle;
+            padding: 5px;
+        }
+        
+        thead,
+        tfoot {
+            background: rgb(208, 223, 236);
+            color: ghostwhite;
+        }
+        
+        tbody tr:nth-child(even) {
+            background: rgb(199, 216, 240)
+        }
+        
+        tbody tr:hover {
+            background: rgb(247, 247, 212);
+        }
+        
+        .btn {
+            padding: 2px;
+            margin: 2px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1> Cosmax 제품 후기</h1>
+    </center>
+    <form align="`right" method="get">
+        업데이트 일자 : <input type="date"><br>
+    </form>
+    <hr width="100%" color="black" />
+    <center>
+        <p> [글로우픽] 코스맥스 제품 리뷰 순위(Top5) </p>
+    </center>
+    <center>
+        <table border>
+            <tr bgcolor="#BDBDBD" font color="white">
+                <th>순위</th>
+                <th>제품명</th>
+                <th>브랜드명</th>
+                <th>제형</th>
+                <th>리뷰 수</th>
+                <th>게시물 이동</th>
+            </tr>
+
+            <tr>
+                <td align="center">1</td>
+                <td align="center">1025 독도 토너</td>
+                <td align="center">라운드랩</td>
+                <td align="center">스킨</td>
+                <td align="right">2,783</td>
+                <td align="center"><a href="https://www.glowpick.com/product/81847">클릭</a></td>
+            </tr>
+
+            <tr>
+                <td align="center">2</td>
+                <td align="center">레드 블레미쉬 클리어 수딩 크림</td>
+                <td align="center">닥터지</td>
+                <td align="center">크림</td>
+                <td align="right">2,430</td>
+                <td align="center"><a href="https://www.glowpick.com/product/104521">클릭</a></td>
+            </tr>
+
+            <tr>
+                <td align="center">3</td>
+                <td align="center">올데이 타이트 메이크업 세팅 픽서</td>
+                <td align="center">쏘내추럴</td>
+                <td align="center">미스트에어로졸</td>
+                <td align="right">1,860</td>
+                <td align="center"><a href="https://www.glowpick.com/product/77394">클릭</a></td>
+            </tr>
+
+            <tr>
+                <td align="center">4</td>
+                <td align="center">청귤 비타C 잡티 세럼</td>
+                <td align="center">구달</td>
+                <td align="center">에센스</td>
+                <td align="right">1,697</td>
+                <td align="center"><a href="https://www.glowpick.com/product/103727">클릭</a></td>
+            </tr>
+
+            <tr>
+                <td align="center">5</td>
+                <td align="center">비폴렌 리뉴 앰풀러</td>
+                <td align="center">미샤</td>
+                <td align="center">에센스</td>
+                <td align="right">1,520</td>
+                <td align="center"><a href="https://www.glowpick.com/product/105840">클릭</a></td>
+            </tr>
+
+
+        </table>
+    </center>
+
+    <hr width="100%" color="black" />
+    <center>
+        <p>[리뷰플러스] 후기 분석을 원하시는 제품을 입력해주세요!
+            <br>저희가 대신 분석해드립니다 :)
+        </p>
+    </center>
+
+    <form align="center" method="POST">
+
+        고객사: <input type="text" name='company' required placeholder="Company.."> 브랜드: <input type="text" name='brand' required placeholder="Brand.."> 제품명: <input type="text" name="product" required placeholder="Product..">
+        <br> 제조사:
+        <select name='manufacturer'>
+                <option value="makeup">코스맥스</option>
+                <option value="skincare">아모레퍼시픽</option>
+                <option value="skincare">엘지생활건강</option>
+                <option value="skincare">한국콜마</option>
+                <option value="skincare">코스메카코리아</option>
+                <option value="skincare">기타</option>
+            </select> * [기타] 선택시 제조사를 직접 입력해주세요 <input type="text" name="manufacturer" required placeholder="Manufacturer..">
+        <button class='btn'>제출</button>
+        <br>
+        <br> 제품 사진:
+        <input class='btn' type="file" name="picture">
+        <button class='btn'>등록</button>
+    </form>
+
+    <hr width="100%" color="black" />
+
+    <center>
+        <p>"글로우픽"에서 직접 확인해보세요!</p>
+    </center>
+    <center><a href="https://www.glowpick.com/">글로우픽</a></center>
+    <center><img src="http://www.thebk.co.kr/news/photo/201604/180576_38584_3129.jpg" /img>
+        <center>
+</body>
+
+</html>

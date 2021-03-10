@@ -1,0 +1,64 @@
+{% extends "base_generic.html" %} {% block content %} {% load static%}
+
+<!-- Single Content -->
+<div id="content" class="site-content center-relative">
+    <div class="single-post-wrapper content-1070 center-relative">
+
+        <article class="center-relative">
+            <h1 class="entry-title">
+                원료명: {{post.title}}
+            </h1>
+
+            <h2 clas="sub-title">
+                가칭: {{post.tentative_title}}
+            </h2>
+            <form align="right" method="get">
+                <div class="entry-date published">작성자: {{post.author}} / 작성일자: {{post.createDate}}</div>
+                {% if post.author == user %}
+                <div>
+                    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' post.id %}">수정</a>
+                    <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' post.id %}">삭제</a> {% endif %}
+                </div>
+            </form>
+            <hr width="100%" color="black" />
+            <div class="post-info content-1070 ">
+                <div class="entry-inci">INC명: {{post.inci_name}}</div>
+                <div class="cat-links">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <!--마지막이 아닌경우 , 연결 : 일상, 정보-->
+                                {% for c in post.category.all%} {{ c }} {% if not forloop.last %} , {% endif %} {% endfor %}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="entry-author">{{post.author}}</div>
+                <div class="entry-date published">{{post.createDate}}</div>
+                {% if post.author == user %}
+                <div>
+                    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' post.id %}">수정</a>
+                    <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' post.id %}">삭제</a> {% endif %}
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="entry-content">
+                <div class="content-wrap content-660">
+                    <p>{{post.content}}</p>
+                    <br>
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+            {% if post.title_image %}
+            <div class="post-full-width">
+                <img src="{{ post.title_image.url }}" alt="">
+            </div>
+            {% endif %}
+        </article>
+    </div>
+</div>
+
+
+{% endblock %}

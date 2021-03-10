@@ -1,0 +1,29 @@
+{% extends "base_generic.html" %} {% block content %} {% load crispy_forms_tags %} {% load static %}
+
+<div id="content" class="site-content">
+    {%if messages%} {% for message in messages %}
+    <div class="alert alert-{{message.tags}}">
+        {{ message }}
+    </div>
+    {% endfor %} {% endif %}
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <!-- form작성시 필수 -->
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Log In</legend>
+                {{form | crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Log in</button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                    Need An Account? <a class="ml-2" href="{% url 'register'%}">Sign Up Now</a>
+            </small>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
